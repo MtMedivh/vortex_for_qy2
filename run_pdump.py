@@ -54,7 +54,7 @@ def mv_out2_dir(cmd):
         shutil.move('out2.prm', _dir)
 
 def set_screen_size(width,height):
-    assert 0<width<=16384 and 0 < height <= 16384,"error width and height:"+str(width)+'x'+str(height) 
+    assert 0<width<=16384 and 0<height <= 16384,"error width and height:"+str(width)+'x'+str(height) 
     os.system('/etc/init.d/rc.musa stop')
     os.environ['PVR_DISPLAY_PARAMS']=f"width={width} height={height}"
     os.system('/etc/init.d/rc.musa start')
@@ -86,7 +86,7 @@ def command_process(argv):
     if os.path.exists('pdump') is False:
         os.mkdir('pdump')
     if len(argv) == 4:
-        run_case(int(argv[1]),int(argv[2]),argv[3])
+        run_case(argv[1],int(argv[2]),int(argv[3]))
     else:
         run(argv[1])
 if __name__ == '__main__':
